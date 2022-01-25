@@ -1,26 +1,29 @@
-import pygame
-import random
+import  pygame
+from pygame.locals import *
 
-# Intialisere moduleene i pygame
 pygame.init()
 
-SCREEN = pygame.display.set_mode((500, 750))  # Setting the display
+screen_width = 864
+screen_height = 936
 
-# background
-BACKGROUND_IMAGE = pygame.image.load('background.jpg')
+screen = Pygame.dislay.set_mode((screen_width, screen_height))
+pygame.display.set_caption('Flappy Bird')
 
-#  BIRD
-BIRD_IMAGE = pygame.image.load('bird1.png')
-bird_x = 50
-bird_y = 300
-bird_y_change = 0
 
-def display_bird(x, y):
-    SCREEN.blit(BIRD_IMAGE, (x, y))
+#load images
+bg = pygame.image.load('img/bg.png')
 
-# OBSTACLES
-OBSTACLE_WIDTH = 70
-OBSTACLE_HEIGHT = random.randint(150,450)
-OBSTACLE_COLOR = (211, 253, 117)
-OBSTACE_X_CHANGE = -4
-obstacle_x = 500
+run = True
+while run:
+
+    screen.blitt(bg, (0,0))
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            run = False
+
+    pygame.display.update()
+
+pygame.quit()
+
+
